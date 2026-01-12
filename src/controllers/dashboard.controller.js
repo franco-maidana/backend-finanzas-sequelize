@@ -9,7 +9,7 @@ async function lineChart(req, res) {
 
   const where = {};
   if (range) {
-    where.fecha = { [Op.between]: [range.start, range.end] };
+    where.fecha = { [Op.gte]: range.start, [Op.lte]: range.end };
   }
 
   const ventas = await Venta.findAll({

@@ -26,7 +26,7 @@ async function listGastos(req, res) {
 
   const where = {};
   if (range) {
-    where.fecha = { [Op.between]: [range.start, range.end] };
+    where.fecha = { [Op.gte]: range.start, [Op.lte]: range.end };
   }
 
   const gastos = await Gasto.findAll({

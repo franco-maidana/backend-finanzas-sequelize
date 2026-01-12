@@ -1,8 +1,18 @@
-const { startOfDay, endOfDay, startOfWeek, endOfWeek, startOfMonth, endOfMonth, startOfYear, endOfYear } = require("./dateUtils");
+const {
+  formatDate,
+  startOfDay,
+  endOfDay,
+  startOfWeek,
+  endOfWeek,
+  startOfMonth,
+  endOfMonth,
+  startOfYear,
+  endOfYear
+} = require("./dateUtils");
 
 function buildDateRange({ period, date, startDate, endDate }) {
   if (startDate && endDate) {
-    return { start: new Date(startDate), end: new Date(endDate) };
+    return { start: startDate, end: endDate };
   }
 
   if (!period || !date) {
@@ -13,13 +23,25 @@ function buildDateRange({ period, date, startDate, endDate }) {
 
   switch (period) {
     case "day":
-      return { start: startOfDay(base), end: endOfDay(base) };
+      return {
+        start: formatDate(startOfDay(base)),
+        end: formatDate(endOfDay(base))
+      };
     case "week":
-      return { start: startOfWeek(base), end: endOfWeek(base) };
+      return {
+        start: formatDate(startOfWeek(base)),
+        end: formatDate(endOfWeek(base))
+      };
     case "month":
-      return { start: startOfMonth(base), end: endOfMonth(base) };
+      return {
+        start: formatDate(startOfMonth(base)),
+        end: formatDate(endOfMonth(base))
+      };
     case "year":
-      return { start: startOfYear(base), end: endOfYear(base) };
+      return {
+        start: formatDate(startOfYear(base)),
+        end: formatDate(endOfYear(base))
+      };
     default:
       return null;
   }

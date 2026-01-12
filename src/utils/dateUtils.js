@@ -1,3 +1,11 @@
+function pad2(value) {
+  return String(value).padStart(2, "0");
+}
+
+function formatDate(date) {
+  return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+}
+
 function startOfDay(date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
 }
@@ -38,6 +46,7 @@ function endOfYear(date) {
 }
 
 module.exports = {
+  formatDate,
   startOfDay,
   endOfDay,
   startOfWeek,

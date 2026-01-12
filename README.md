@@ -74,7 +74,7 @@ Body:
 Filtros soportados:
 
 - `?period=day|week|month|year&date=YYYY-MM-DD`
-- `?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD`
+- `?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD` (rango inclusivo)
 
 ### PUT /ventas/:id
 
