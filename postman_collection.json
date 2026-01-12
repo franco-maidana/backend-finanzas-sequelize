@@ -1,0 +1,202 @@
+{
+  "info": {
+    "name": "Backend Finanzas - Postman Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ventas",
+      "item": [
+        {
+          "name": "Creacion de una venta",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/ventas",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["ventas"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-02-02\",\n  \"categoria\": \"servicios\",\n  \"monto\": 1500,\n  \"descripcion\": \"venta mensual\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Mostrar las ventas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/ventas?period=month&date=2026-02-01",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["ventas"],
+              "query": [
+                { "key": "period", "value": "month" },
+                { "key": "date", "value": "2026-02-01" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Modificacion de una venta",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/ventas/{{ventaId}}",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["ventas", "{{ventaId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-02-05\",\n  \"categoria\": \"servicios\",\n  \"monto\": 1600,\n  \"descripcion\": \"venta mensual actualizada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminacion de una venta",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/ventas/{{ventaId}}",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["ventas", "{{ventaId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gastos",
+      "item": [
+        {
+          "name": "Creamos un gasto",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/gastos",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["gastos"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-02-03\",\n  \"categoria\": \"operacion\",\n  \"monto\": 300,\n  \"descripcion\": \"pago proveedor\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Listado de todos los gastos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/gastos?period=month&date=2026-02-01",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["gastos"],
+              "query": [
+                { "key": "period", "value": "month" },
+                { "key": "date", "value": "2026-02-01" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Modificacion de un gasto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/gastos/{{gastoId}}",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["gastos", "{{gastoId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-02-04\",\n  \"categoria\": \"operacion\",\n  \"monto\": 350,\n  \"descripcion\": \"pago proveedor actualizado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminacion de un gasto",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/gastos/{{gastoId}}",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["gastos", "{{gastoId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Dashboard line chart",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/dashboard/line-chart?period=month&date=2026-02-01",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["dashboard", "line-chart"],
+              "query": [
+                { "key": "period", "value": "month" },
+                { "key": "date", "value": "2026-02-01" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Import",
+      "item": [
+        {
+          "name": "Import JSON",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{finanzasBaseUrl}}/import-json",
+              "host": ["{{finanzasBaseUrl}}"],
+              "path": ["import-json"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ventas\": [\n    {\n      \"fecha\": \"2026-03-01\",\n      \"categoria\": \"servicios\",\n      \"monto\": 1200,\n      \"descripcion\": \"venta importada\"\n    }\n  ],\n  \"gastos\": [\n    {\n      \"fecha\": \"2026-03-02\",\n      \"categoria\": \"operacion\",\n      \"monto\": 200,\n      \"descripcion\": \"gasto importado\"\n    }\n  ]\n}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "finanzasBaseUrl", "value": "http://localhost:4001" },
+    { "key": "token", "value": "" },
+    { "key": "ventaId", "value": "1" },
+    { "key": "gastoId", "value": "1" }
+  ]
+}
