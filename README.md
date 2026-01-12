@@ -22,10 +22,10 @@ Crea un archivo `.env` en la raiz del proyecto:
 PORT=4001
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=finanzas_db
+DB_NAME=finanzas
 DB_USER=postgres
-DB_PASSWORD=postgres
-JWT_SECRET=super_secret_key
+DB_PASSWORD=abrelatas
+JWT_SECRET=secret-key
 ```
 
 ## Migraciones
